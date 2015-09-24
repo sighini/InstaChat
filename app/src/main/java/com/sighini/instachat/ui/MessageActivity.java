@@ -43,27 +43,27 @@ public class MessageActivity extends AppCompatActivity {
 
 		mListView = (ListView) findViewById(R.id.id_message_list);
 
-//		mNewChatText = (EditText) findViewById(R.id.id_new_msg);
-//		mNewChatText.setOnKeyListener(new OnKeyListener() {
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                // If the event is a key-down event on the "enter" button
-//                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-//                    // Perform action on key press
-//                    createNewMessage();
-//
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+		mNewChatText = (EditText) findViewById(R.id.id_new_msg);
+		mNewChatText.setOnKeyListener(new OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    createNewMessage();
 
-//        ImageButton sendBtn = (ImageButton) findViewById(R.id.id_send);
-//        sendBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                createNewMessage();
-//            }
-//        });
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        ImageButton sendBtn = (ImageButton) findViewById(R.id.id_send);
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createNewMessage();
+            }
+        });
 		addItems();
 	}
 
@@ -73,8 +73,8 @@ public class MessageActivity extends AppCompatActivity {
                 mNewChatText.getText().toString()
         };
         ConnectionManager.sendRequest(MessageActivity.this, sNewMsgHandler,
-                ConnectionManager.RequestType.CREATE_CHAT, request);
-        mNewChatText.setText("");
+                ConnectionManager.RequestType.CREATE_MSG, request);
+
     }
 
     private void addItems() {
@@ -114,9 +114,15 @@ public class MessageActivity extends AppCompatActivity {
                 NewMsgResponsePojo resp = new Gson().fromJson(response, NewMsgResponsePojo.class);
                 Log.e(TAG, "NewMsgResponsePojo:" + resp.toString());
                 if (resp.getSuccess()) {
-                    mAdapter.add(resp.getData());
+                    //TODO:
+                    MsgUserData data = resp.getData();
+                    data.setMessage(mNewChatText.getText().toString());
+                    mNewChatText.setText("");
+                    ////
+                    mAdapter.add(data);
                 } else {
                     //new AlertDialog()
+                    Log.e(TAG, "NewMsgResponsePojo: Error");
                 }
 
             } else {

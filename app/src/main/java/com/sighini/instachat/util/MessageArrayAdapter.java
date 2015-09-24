@@ -18,10 +18,8 @@ import com.sighini.instachat.dto.MsgUserData;
 
 public class MessageArrayAdapter extends ArrayAdapter<MsgUserData> {
 
-    private static final String TAG =MessageArrayAdapter.class.getSimpleName() ;
+    private static final String TAG = MessageArrayAdapter.class.getSimpleName() ;
 	private ArrayList<MsgUserData> mMessages = new ArrayList<>();
-	private LinearLayout mLeftView;
-	private LinearLayout mRightView;
     private int mUserId;
 
 
@@ -59,7 +57,12 @@ public class MessageArrayAdapter extends ArrayAdapter<MsgUserData> {
 
     }
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+    @Override
+    public void add(MsgUserData object) {
+        mMessages.add(object);
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
         ViewHolder holder;
 		if (convertView == null) {
@@ -81,12 +84,14 @@ public class MessageArrayAdapter extends ArrayAdapter<MsgUserData> {
         MsgUserData msg = getItem(position);
         if (mUserId == msg.getUser_id()) {
             holder.leftView.setVisibility(View.GONE);
+            holder.rightView.setVisibility(View.VISIBLE);
             holder.rightMsg.setText(msg.getMessage());
-            //chat.setBackgroundResource( R.drawable.bubble_green);
+            holder.rightMsg.setBackgroundResource(R.drawable.bubble_green);
         } else {
             holder.rightView.setVisibility(View.GONE);
-            holder.rightMsg.setText(msg.getMessage());
-            //chat.setBackgroundResource(R.drawable.bubble_yellow);
+            holder.leftView.setVisibility(View.VISIBLE);
+            holder.leftMsg.setText(msg.getMessage());
+            holder.rightMsg.setBackgroundResource(R.drawable.bubble_yellow);
         }
 
 		return row;
