@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/id_left_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:src="@drawable/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/left_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:background="@drawable/bubble_yellow"
+            android:paddingLeft="10dip"
+            android:text="Hello bubbles!"
+            android:textColor="@android:color/primary_text_light" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/id_right_view"
+        android:gravity="right"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/right_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:background="@drawable/bubble_yellow"
+            android:paddingLeft="10dip"
+            android:text="Hello bubbles!"
+            android:textColor="@android:color/primary_text_light" />
+
+        <ImageView
+            android:layout_gravity="right"
+            android:src="@drawable/contact"
+            android:layout_width="47dp"
+            android:layout_height="47dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

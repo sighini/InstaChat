@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">InstaChat</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_account">Account</string>
+    <string name="signin">sign in</string>
+    <string name="signup">sign Up?</string>
+    <string name="email_hint">Enter Your Email</string>
+    <string name="passwd_hint">Enter Your Password</string>
+    <string name="name_hint">Enter Your Name</string>
+    <string name="create_passwd_hint">Create Password</string>
+    <string name="confirm_passwd_hint">Confirm Password</string>
+    <string name="show">Show</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="account">Account</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
+    <string name="my_profile">My Profile</string>
+    <string name="email_address">Email Address</string>
+    <string name="your_name">Your Name</string>
+    <string name="password">Password</string>
+    <string name="title_activity_edit_account">EditAccountActivity</string>
+    <string name="chat_room">Chat Room</string>
+    <string name="enter_message">Enter Message</string>
+</resources>
