@@ -42,14 +42,17 @@ public class AccountActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent;
         switch(position) {
             case 0:
-                Intent intent = new Intent(this, EditAccountActivity.class);
+                intent = new Intent(this, EditAccountActivity.class);
                 intent.putExtra(Constants.TOKEN, mToken);
                 startActivity(intent);
                 break;
             case 1:
                 //Logout
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
         }
     }
 
