@@ -58,7 +58,9 @@ public class ConnectionManager {
                 String token = getRequestToken(requestType, request);
                 String response = null;
                 try {
-                    //response = makeRequest(url, param, requestType, token);
+                    if(!Constants.isTestMode) {
+                        response = makeRequest(url, param, requestType, token);
+                    }
                     Log.e(TAG, "Response:" + response);
                 } catch (Exception e) {
                     e.printStackTrace();

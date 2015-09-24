@@ -24,8 +24,8 @@ import com.sighini.instachat.util.MessageArrayAdapter;
 public class MessageActivity extends AppCompatActivity {
     private static final String TAG = MessageActivity.class.getSimpleName();
     private ListView mListView;
-	private EditText mNewChatText;
-	private MessageArrayAdapter mAdapter;
+    private EditText mNewChatText;
+    private MessageArrayAdapter mAdapter;
     private int mChatId;
     private String mChatName;
     private int mUserId;
