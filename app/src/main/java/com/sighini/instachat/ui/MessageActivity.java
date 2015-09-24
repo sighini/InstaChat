@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -61,6 +62,8 @@ public class MessageActivity extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 createNewMessage();
             }
         });
