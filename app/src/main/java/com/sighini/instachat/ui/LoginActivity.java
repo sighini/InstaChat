@@ -27,8 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
     private Button mBtnSignIn = null;
     private Button mBtnSignUp = null;
-//    private SignInInputFragment signInFragment = null;
-//    private SignUpInputFragment signUpFragment = null;
 
     private FrameLayout mSignInFrameLayout = null;
     private FrameLayout mSignUpFrameLayout= null;

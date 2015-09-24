@@ -30,6 +30,20 @@ public class SignInInputFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mEmail = (EditText) getActivity().findViewById(R.id.id_signin_email);
         mPasswd = (EditText) getActivity().findViewById(R.id.id_signin_passwd);
+
+        mEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEmail.setText("");
+            }
+        });
+
+        mPasswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPasswd.setText("");
+            }
+        });
     }
 
     public LoginInfo getLoginInfo() {
